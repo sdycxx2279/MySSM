@@ -56,7 +56,8 @@ public class UserServiceImpl implements UserService{
     public boolean updateOneUser(User user){
         int message1 = userMapper.updateById(user);
         int message2 = articleMapper.updateAuthor(user.getId(),user.getNickname());
-        if(message1>0&&message2>0)
+        System.out.println(message1+" "+message2);
+        if(message1>0&&message2>=0)
             return true;
         else
             return false;

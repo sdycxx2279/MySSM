@@ -94,9 +94,9 @@
     <div class="main">
         <div class="contact">
             <div style="color:red;font-size: 26px">${message}</div>
-            <div class="contact-form">
+            <div class="contact-form" style="text-align: center">
                 <form method="post" action="/user/update.do">
-                    <div>
+                    <div >
                         <span style="font-size: 26px">用户名：&nbsp${LoginUser.username}</span>
                     </div>
                     <div>
