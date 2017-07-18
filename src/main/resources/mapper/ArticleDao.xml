@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="team.xxu.dao.ArticleDao">
+    <resultMap id="resultListArticle" type="team.xxu.model.Article">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="author" property="author"/>
+        <result column="author_id" property="author_id"/>
+        <result column="content" property="content"/>
+        <result column="create_time" property="create_time"/>
+    </resultMap>
+    <insert id="addArticle" parameterType="Article">
+        INSERT INTO article (title,author,author_id,content,create_time)
+        VALUES (#{title},#{author},#{author_id},#{content},#{create_time})
+    </insert>
+
+    <select id="selectAllArticle" resultMap="resultListArticle">
+        SELECT * FROM article ORDER BY id DESC
+    </select>
+    <select id="selectById" parameterType="int" resultType="Article">
+        SELECT * FROM article WHERE id=#{id}
+    </select>
+    <select id="selectByAuthor" parameterType="int" resultMap="resultListArticle">
+        SELECT * FROM article WHERE author_id=#{author_id} ORDER BY id DESC
+    </select>
+    <update id="updateById" parameterType="Article">
+        UPDATE article
+        SET
+        title=#{title},
+        author=#{author},
+        content=#{content}
+        WHERE id=#{id}
+    </update>
+    <update id="updateAuthor">
+        UPDATE article
+        SET
+        author=#{author}
+        WHERE author_id=#{author_id}
+    </update>
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM article WHERE id=#{id}
+    </delete>
+</mapper>
