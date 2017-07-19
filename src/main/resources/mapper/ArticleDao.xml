@@ -12,7 +12,7 @@
         <result column="create_time" property="create_time"/>
     </resultMap>
     <insert id="addArticle" parameterType="Article">
-        INSERT INTO article (title,author,author_id,content,create_time,viwed)
+        INSERT INTO article (title,author,author_id,content,create_time,viewed)
         VALUES (#{title},#{author},#{author_id},#{content},#{create_time},#{viewed})
     </insert>
 

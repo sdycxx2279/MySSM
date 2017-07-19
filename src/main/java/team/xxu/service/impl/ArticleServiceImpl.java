@@ -15,7 +15,7 @@ import java.util.List;
 @Service("ArticleService")
 public class ArticleServiceImpl implements ArticleService{
     @Autowired
-    ArticleDao articleMapper;
+    private ArticleDao articleMapper;
 
     //新建一篇文章
     public boolean addArticle(Article article){
@@ -43,9 +43,10 @@ public class ArticleServiceImpl implements ArticleService{
     }
 
     //获取某篇文章
-    public Article getOneArticle(int id){
+    public Article getOneArticle(int id,boolean update){
         Article article = articleMapper.selectById(id);
-        articleMapper.updateViewed(id);
+        if(!update)
+            articleMapper.updateViewed(id);
         return  article;
     }
 

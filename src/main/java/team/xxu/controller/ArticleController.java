@@ -70,7 +70,7 @@ public class ArticleController {
     //查看某文章详情
     @RequestMapping("/article/{id}")
     public String getOneArticle(@PathVariable("id") int id,HttpServletRequest request){
-        Article article = articleService.getOneArticle(id);
+        Article article = articleService.getOneArticle(id,false);
         request.setAttribute("article",article);
 
         return "articleShow";
@@ -79,7 +79,7 @@ public class ArticleController {
     //查看可修改的文章详情
     @RequestMapping("/articleInfo/{id}")
     public String getArticleInfo(@PathVariable("id") int id,HttpServletRequest request){
-        Article article = articleService.getOneArticle(id);
+        Article article = articleService.getOneArticle(id,true);
         request.setAttribute("article",article);
         request.setAttribute("update",true);
 
@@ -105,7 +105,7 @@ public class ArticleController {
             else
                 return "redirect:/article/myArticles.do";
         }
-        request.setAttribute("article",articleService.getOneArticle(id));
+        request.setAttribute("article",articleService.getOneArticle(id,true));
         request.setAttribute("update",true);
         return "article";
     }

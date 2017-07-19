@@ -8,8 +8,8 @@ import team.xxu.model.User;
  */
 
 public interface UserService {
-    public User login(String username, String password);
-    public User register(User user);
-    public boolean hasUsername(String username);
-    public boolean updateOneUser(User user);
+    User login(String username, String password);
+    User register(User user);
+    boolean hasUsername(String username);
+    boolean updateOneUser(User user);
 }
