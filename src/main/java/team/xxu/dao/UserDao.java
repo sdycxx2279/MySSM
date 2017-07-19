@@ -8,8 +8,8 @@ import team.xxu.model.User;
 public interface UserDao {
     //这里以接口形式定义了数据库操作方法,我们只需
     // 在Mybatis映射文件中对其进行映射就可以直接使用
-    public User selectById(int id);
-    public User selectByName(String username);
-    public int addUser(User user);
-    public int updateById(User user);
+    User selectById(int id);
+    User selectByName(String username);
+    int addUser(User user);
+    int updateById(User user);
 }
