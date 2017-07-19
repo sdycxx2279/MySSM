@@ -19,7 +19,7 @@ public class ArticleDaoTest extends BaseTest{
 
     @Test
     public void testUpdate() throws Exception {
-       int a = articleDao.updateAuthor(1,"测试");
+       int a = articleDao.updateViewed(1);
 
        System.out.println(a);
     }

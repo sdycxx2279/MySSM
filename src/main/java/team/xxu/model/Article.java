@@ -12,6 +12,7 @@ public class Article {
     private String author;
     private Date create_time;
     private String content;
+    private int viewed;
 
     public Article() {
     }
@@ -22,6 +23,7 @@ public class Article {
         this.author = author;
         this.create_time = create_time;
         this.content = content;
+        this.viewed = 0;
     }
 
     public String getContent() {
@@ -75,6 +77,14 @@ public class Article {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getViewed() {
+        return viewed;
+    }
+
+    public void setViewed(int viewed) {
+        this.viewed = viewed;
     }
 
     @Override

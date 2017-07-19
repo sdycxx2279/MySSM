@@ -21,6 +21,7 @@ public class ArticleServiceImpl implements ArticleService{
     public boolean addArticle(Article article){
         Date create_time = new Date();
         article.setCreate_time(create_time);
+        article.setViewed(0);
         int a = articleMapper.addArticle(article);
 
         if(a>0)
@@ -44,6 +45,7 @@ public class ArticleServiceImpl implements ArticleService{
     //获取某篇文章
     public Article getOneArticle(int id){
         Article article = articleMapper.selectById(id);
+        articleMapper.updateViewed(id);
         return  article;
     }
 

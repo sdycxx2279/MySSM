@@ -102,6 +102,7 @@
                     <h5>
                         <fmt:formatDate value="${article.create_time}" type="date" dateStyle="full"/>,
                         Posted by&nbsp;${article.author}
+                        ,Read by ${article.viewed} Person
                     </h5>
                     <div class="blog_para">
                         <p class="para">

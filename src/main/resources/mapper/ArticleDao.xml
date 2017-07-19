@@ -12,8 +12,8 @@
         <result column="create_time" property="create_time"/>
     </resultMap>
     <insert id="addArticle" parameterType="Article">
-        INSERT INTO article (title,author,author_id,content,create_time)
-        VALUES (#{title},#{author},#{author_id},#{content},#{create_time})
+        INSERT INTO article (title,author,author_id,content,create_time,viwed)
+        VALUES (#{title},#{author},#{author_id},#{content},#{create_time},#{viewed})
     </insert>
 
     <select id="selectAllArticle" resultMap="resultListArticle">
@@ -38,6 +38,12 @@
         SET
         author=#{author}
         WHERE author_id=#{author_id}
+    </update>
+    <update id="updateViewed" parameterType="int">
+        UPDATE article
+        SET
+        viewed = viewed+1
+        WHERE id=#{id};
     </update>
     <delete id="deleteById" parameterType="int">
         DELETE FROM article WHERE id=#{id}

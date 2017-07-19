@@ -17,4 +17,5 @@ public interface ArticleDao {
     public int updateById(Article article);
     public int deleteById(int id);
     public int updateAuthor(@Param("author_id") int author_id,@Param("author") String author);
+    public int updateViewed(int id);
 }
